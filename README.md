@@ -1,0 +1,2 @@
+# kodyuzz
+my blog
