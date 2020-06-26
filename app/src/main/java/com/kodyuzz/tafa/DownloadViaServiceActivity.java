@@ -66,6 +66,7 @@ public class DownloadViaServiceActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DownloadService.class);
         intent.putExtra("url", urlAdress);
         intent.putExtra("receiver", new DownloadReceiver(new Handler()));
+        Log.d(TAG, "start: the name of thread "+Thread.currentThread().getName());
         startService(intent);
     }
 

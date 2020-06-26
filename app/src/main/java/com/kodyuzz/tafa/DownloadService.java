@@ -4,6 +4,7 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.ResultReceiver;
+import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -16,6 +17,8 @@ import java.net.URLConnection;
 
 public class DownloadService extends IntentService {
     public static final int UPDATE_PROGRESS = 8344;
+    private static final String TAG = "DownloadService";
+
 
     public DownloadService() {
         super("DownloadService");
@@ -44,6 +47,8 @@ public class DownloadService extends IntentService {
             String path = getApplicationInfo().dataDir + "/a.pdf";
             OutputStream output = new FileOutputStream(path);
 
+            Log.d(TAG, "start: the name of thread " + Thread.currentThread().getName());
+
             byte data[] = new byte[1024];
             long total = 0;
             int count;
@@ -70,7 +75,6 @@ public class DownloadService extends IntentService {
         resultData.putInt("progress", 100);
 
         receiver.send(UPDATE_PROGRESS, resultData);
-
-
+        
     }
 }
