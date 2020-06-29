@@ -1,4 +1,4 @@
-package com.kodyuzz.tafa;
+package com.kodyuzz.tafa.download;
 
 import android.app.IntentService;
 import android.content.Intent;

@@ -1,8 +1,7 @@
-package com.kodyuzz.tafa;
+package com.kodyuzz.tafa.download;
 
 import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -11,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,12 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.File;
 
 public class DownloadViaServiceActivity extends AppCompatActivity {
+    public static final int MY_REQUEST = 23;
     private static final String TAG = "DownloadViaServiceActiv";
     String urlAdress = "https://github.com/gopinathankm/Java-Training-2018/raw/master/OCP%20Oracle%20Certified%20Professional%20Java%20SE%208%20Programmer%20II%20Study%20Guide%20Exam%201Z0-809.pdf";
-
     ProgressDialog mProgressDialog;
-
-    public static final int MY_REQUEST = 23;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,10 +62,17 @@ public class DownloadViaServiceActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DownloadService.class);
         intent.putExtra("url", urlAdress);
         intent.putExtra("receiver", new DownloadReceiver(new Handler()));
-        Log.d(TAG, "start: the name of thread "+Thread.currentThread().getName());
+        Log.d(TAG, "start: the name of thread " + Thread.currentThread().getName());
         startService(intent);
     }
 
+    private void openPdf() {
+        File file = new File(getApplicationInfo().dataDir, "a.pdf");
+        Intent intent = new Intent();
+        intent.setPackage("com.adobe.reader");
+        intent.setDataAndType(Uri.fromFile(file), "application/pdf");
+        startActivity(intent);
+    }
 
     private class DownloadReceiver extends ResultReceiver {
 
@@ -95,13 +98,5 @@ public class DownloadViaServiceActivity extends AppCompatActivity {
         }
 
 
-    }
-
-    private void openPdf() {
-        File file = new File(getApplicationInfo().dataDir, "a.pdf");
-        Intent intent = new Intent();
-        intent.setPackage("com.adobe.reader");
-        intent.setDataAndType(Uri.fromFile(file), "application/pdf");
-        startActivity(intent);
     }
 }

@@ -1,4 +1,4 @@
-package com.kodyuzz.tafa;
+package com.kodyuzz.tafa.download;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.kodyuzz.tafa.R;
 
 import java.io.File;
 
