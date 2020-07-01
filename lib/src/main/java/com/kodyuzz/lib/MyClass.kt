@@ -48,7 +48,43 @@ fun main() {
 
 //    anonymousTest()
 
-    objectTest()
+//    objectTest()
+
+//    whenTest2()
+
+//    constructorTest2()
+
+
+}
+
+fun constructorTest2() {
+    var person = Person()
+}
+
+fun whenTest2() {
+    var items = arrayListOf<String>("a", "b", "c", "d")
+    for (item in items) {
+//        var s = when (item) {
+//            "o" -> "oooo"
+//            "b" -> "bbb"
+//            else -> " "
+//        }
+//        println(s)
+
+        when {
+            "c" in items -> println("ccccc")
+            "d" in items -> println("ddddd")
+        }
+
+
+
+    }
+
+}
+
+
+class Person {
+
 }
 
 fun objectTest() {

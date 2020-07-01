@@ -1,20 +1,17 @@
 package com.kodyuzz.tafa.download;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.kodyuzz.mylibrary.StudentManager;
 import com.kodyuzz.tafa.R;
 
 import java.io.File;
@@ -23,19 +20,6 @@ public class DownloadManagerActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 1;
 
     private long downloadId;
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        registerReceiver(onDownloadComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-
-        beginDownload("http://www.tutorialspoint.com/java/java_tutorial.pdf");
-
-    }
-
     private BroadcastReceiver onDownloadComplete = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -46,6 +30,22 @@ public class DownloadManagerActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        if (!StudentManager.INSTANCE.isNetworkConnceted(this)) {
+
+            Toast.makeText(this, "network not connected", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        registerReceiver(onDownloadComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
+        beginDownload("http://www.tutorialspoint.com/java/java_tutorial.pdf");
+
+    }
 
     @Override
     protected void onDestroy() {

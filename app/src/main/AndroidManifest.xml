@@ -17,7 +17,7 @@
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
          android:theme="@style/AppTheme">
-        <activity android:name=".download.DownloadViaServiceActivity">
+        <activity android:name=".download.DownloadManagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

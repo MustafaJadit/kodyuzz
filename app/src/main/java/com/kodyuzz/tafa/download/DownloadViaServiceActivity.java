@@ -92,7 +92,7 @@ public class DownloadViaServiceActivity extends AppCompatActivity {
 
                 if (progress == 100) {
                     mProgressDialog.dismiss();
-                    openPdf();
+//                    openPdf();
                 }
             }
         }
