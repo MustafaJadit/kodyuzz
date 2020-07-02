@@ -10,7 +10,9 @@ fun main() {
 
 //    mapDemo()
 
-    defineLambda()
+//    defineLambda()
+
+    printFunction()
 }
 
 fun defineLambda() {
@@ -22,8 +24,16 @@ fun defineLambda() {
 }
 
 fun printFunction() {
-
+    var tutorial = "This is Kotlin Tutorial"
+    println(tutorial) //This is Kotlin Tutorial
+    tutorial = run {
+        val tutorial = "This is run function"
+        println("this is run printing")
+        tutorial
+    }
 }
+
+
 
 val myLambdaFunction2: () -> Unit = {}
 

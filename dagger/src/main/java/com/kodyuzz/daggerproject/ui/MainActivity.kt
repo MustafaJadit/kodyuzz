@@ -14,20 +14,18 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModel: MainViewModel
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         DaggerActivityComponent
-            .builder()
-            .applicationComponent((application as MyApplication).applicationComponent)
-            .activityModule(ActivityModule(this))
-            .build()
-            .inject(this)
+                .builder()
+                .applicationComponent((application as MyApplication).getApplicationComponent())
+                .activityModule(ActivityModule(this))
+                .build()
+                .inject(this)
 
         viewModel.refreshData()
-
 
 
     }
