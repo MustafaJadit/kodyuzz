@@ -12,13 +12,5 @@ class MainActivity : AppCompatActivity() {
         myToast = TimeToast(application, this)
     }
 
-//    override fun onStop() {
-//        super.onStop()
-//        myToast.stop()
-//
-//    }
-//
-//    override fun onDestroy() {
-//        super.onDestroy()
-//    }
+
 }
