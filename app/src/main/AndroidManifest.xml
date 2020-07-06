@@ -5,19 +5,20 @@
     package="com.kodyuzz.tafa">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:targetApi="m"
-        android:requestLegacyExternalStorage="true"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-         android:theme="@style/AppTheme">
-        <activity android:name=".download.DownloadManagerActivity">
+        tools:targetApi="m">
+        <activity android:name=".lifecycle.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +27,7 @@
         </activity>
 
 
-        <service android:name=".download.DownloadService"/>
+        <service android:name=".download.DownloadService" />
     </application>
 
 </manifest>
