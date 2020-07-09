@@ -8,9 +8,9 @@ import dagger.Provides
 
 @Module
 class ActivityModule(private val activity: Activity) {
-    @get:Provides
-    @get:ActivityContext
-    val activityContext: Context
-        get() = activity
+
+    @Provides
+    @ActivityContext
+    fun activityContext(): Context = activity
 
 }

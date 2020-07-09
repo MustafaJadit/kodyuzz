@@ -18,4 +18,5 @@ class NetworkHelper @Inject constructor(// Should be Application Context
             return false
         }
 
+
 }

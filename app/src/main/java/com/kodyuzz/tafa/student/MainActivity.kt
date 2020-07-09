@@ -6,6 +6,7 @@ import android.os.Message
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 //        HandlerTimer()
 
 //        threadTimer()
+
+        Toast.makeText( applicationContext,"", Toast.LENGTH_SHORT).show()
 
 
     }

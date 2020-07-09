@@ -46,13 +46,13 @@ public class DownloadViaServiceActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == MY_REQUEST) {
-            for (int i = 0; i < permissions.length; i++) {
-                if (permissions[i] == Manifest.permission.WRITE_EXTERNAL_STORAGE && grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                    start();
-
-                }
-            }
+        if (requestCode == MY_REQUEST && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//            for (int i = 0; i < permissions.length; i++) {
+//                if (permissions[i] == Manifest.permission.WRITE_EXTERNAL_STORAGE && grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+            start();
+//
+//                }
+//            }
         }
     }
 
