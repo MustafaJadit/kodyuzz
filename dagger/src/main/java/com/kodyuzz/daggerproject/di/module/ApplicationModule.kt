@@ -11,9 +11,10 @@ import dagger.Provides
 
 @Module
 class ApplicationModule(private val application: Application) {
-    @get:Provides
-    val dBVersion: Int
-        get() = 1
+
+    @Provides
+    fun dBVersion(): Int = 1
+
 
     @get:Provides
     @get:DBName
