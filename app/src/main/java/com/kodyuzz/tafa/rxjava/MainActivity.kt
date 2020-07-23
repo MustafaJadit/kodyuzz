@@ -230,6 +230,10 @@ class MainActivity : AppCompatActivity() {
                 })
     }
 
+    fun test10(){
+        println(applicationInfo.dataDir)
+        println(applicationContext.filesDir)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -243,7 +247,8 @@ class MainActivity : AppCompatActivity() {
 //        test6()
 //        test7()
 //        test8()
-        test9()
+//        test9()
+        test10()
     }
 
 
