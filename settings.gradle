@@ -1,3 +1,7 @@
+include ':mylifecycle'
+include ':myreceiver'
+include ':graphqlsample'
+include ':coroutines'
 include ':room'
 include ':mylibrary'
 include ':lib'
