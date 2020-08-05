@@ -18,37 +18,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <receiver
-            android:name=".download.MyReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.PHONE_STATE" />
-            </intent-filter>
-
-        </receiver>
-
-        <service
-            android:name=".download.MyService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="myservice2" />
-            </intent-filter>
-        </service>
-        <service
-            android:name=".download.MyIntentService"
-            android:exported="false" />
 
         <activity android:name=".room.MainActivity" /> <!-- <activity android:name=".rxjava.MainActivity"></activity> -->
-        <activity android:name=".download.MainActivity2">
+        <activity android:name=".download.DownloadManagerActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <service android:name=".download.DownloadService" />
     </application>
 

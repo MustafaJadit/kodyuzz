@@ -1,3 +1,4 @@
+include ':myservice'
 include ':mylifecycle'
 include ':myreceiver'
 include ':graphqlsample'
