@@ -20,7 +20,7 @@
         tools:targetApi="m">
 
         <activity android:name=".room.MainActivity" /> <!-- <activity android:name=".rxjava.MainActivity"></activity> -->
-        <activity android:name=".download.DownloadManagerActivity">
+        <activity android:name=".student.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

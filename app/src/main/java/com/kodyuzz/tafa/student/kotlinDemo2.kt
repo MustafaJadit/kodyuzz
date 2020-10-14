@@ -35,6 +35,7 @@ fun test1() {
 
     })
 
+    println("---1")
 //    sortedWith.forEach { println(it) }
     sortedWith.forEach(::println)
 
@@ -71,6 +72,7 @@ fun test5() {
 
     outer@ for (i in 1..10) {
         innner@ for (j in 1..10) {
+            println(j)
             if (i == 4) continue@outer
         }
     }
@@ -86,19 +88,37 @@ fun test6() {
     val myLambda1: Function<String, Int>
     myLambda1 = Function { a -> a.length }
 
+
     //accept
-    fun inner2(consumer: () -> Unit) {
+
+
+    fun inner2(consumer2: (a2: String) -> Unit) {
 
     }
 
+    inner2 { i ->
+        println()
+
+    }
     //get
-    fun inner3(supplier: Supplier<Int>) {}
+    fun inner3(supplier: Supplier<Int>) {
+        supplier.get()
+    }
+
 
     //test
-    fun inner4(p: Predicate<String>) {}
+    fun inner4(p: Predicate<String>) {
+        p.test("2")
+    }
+
+    inner4(Predicate { t ->
+        t.length > 1
+    })
 
     //apply
-    fun inner5(f: Function<String, Int>) {}
+    fun inner5(f: Function<String, Int>) {
+        f.apply("")
+    }
 
 
     val myLambdaFun2: (s: String) -> Int = {
@@ -116,10 +136,10 @@ abstract class Light {
 
 class MicroLight : Light() {
 
-    var color: String = ""
+    var color: String = "color"
         get() = field
         set(value) {
-            field = value
+            field = "22"+value
         }
 
     override var strength: Int = 1
@@ -229,7 +249,7 @@ fun main() {
 //    test1()
 //    test2()
 //    test4()
-//    test6()
+//    test5()
 //    test7()
     test8()
 }

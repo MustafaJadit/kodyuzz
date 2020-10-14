@@ -19,6 +19,9 @@ import java.io.File;
 public class DownloadManagerActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 1;
 
+    int a[]=new int[]{};
+
+
     private long downloadId;
     private BroadcastReceiver onDownloadComplete = new BroadcastReceiver() {
         @Override

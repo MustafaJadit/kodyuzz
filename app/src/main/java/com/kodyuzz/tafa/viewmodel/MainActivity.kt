@@ -17,8 +17,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        viewModel.timerData.observe(this, Observer {
-            Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
+        viewModel.timerData.observe(this, Observer<String> {
+
         })
+
+        object : I1 {
+            override fun i1() {
+
+            }
+        }
+
+
+        Observer<String> { }
     }
+}
+
+interface I1 {
+    fun i1()
 }

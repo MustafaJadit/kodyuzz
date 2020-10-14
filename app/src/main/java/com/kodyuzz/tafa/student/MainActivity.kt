@@ -35,8 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         Toast.makeText( applicationContext,"", Toast.LENGTH_SHORT).show()
 
+        threadTimer()
 
     }
+
 
     private fun threadTimer() {
         var thread = Thread {
@@ -86,6 +88,7 @@ class MainActivity : AppCompatActivity() {
         Handler().sendEmptyMessageDelayed(23, 100)
         Handler().postDelayed({}, 1222)
         synchronized(this@MainActivity) {
+
         }
 
     }
